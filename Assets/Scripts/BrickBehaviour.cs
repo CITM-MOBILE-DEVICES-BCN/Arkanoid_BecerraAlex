@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BlockChangeColor : MonoBehaviour
 {
-    private Color WhiteState = Color.white;
-    private Color YellowState = Color.yellow;
-    private Color RedState = Color.red;
-    private Color GreenState = Color.green;
+    public Color WhiteState = Color.white;
+    public Color YellowState = Color.yellow;
+    public Color RedState = Color.red;
+    public Color GreenState = Color.green;
 
 
     private List<Color> colorStates = new List<Color>();

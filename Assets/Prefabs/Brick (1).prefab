@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4714281026848266171}
   m_Layer: 0
   m_Name: Brick (1)
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531ae5acc9a2521479045c190d5867f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhiteState: {r: 1, g: 1, b: 1, a: 0.14901961}
+  YellowState: {r: 1, g: 1, b: 1, a: 0.3882353}
+  RedState: {r: 1, g: 1, b: 1, a: 0.70980394}
+  GreenState: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &4714281026848266171
 BoxCollider2D:
   m_ObjectHideFlags: 0

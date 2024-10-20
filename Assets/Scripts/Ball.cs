@@ -11,6 +11,7 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isMoving = false;
     public float numBalls = 3f;
+    [SerializeField] private float speedMult;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,5 +42,13 @@ public class BallController : MonoBehaviour
         rb.velocity = Vector2.zero; 
         transform.localPosition = Vector3.zero; 
         isMoving = false; 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Brick"))
+        {
+            rb.velocity *= speedMult;
+        }
     }
 }
