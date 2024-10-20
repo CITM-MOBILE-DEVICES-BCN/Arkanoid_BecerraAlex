@@ -9,12 +9,14 @@ public class BlockChangeColor : MonoBehaviour
     public Color RedState = Color.red;
     public Color GreenState = Color.green;
 
-
+    
     private List<Color> colorStates = new List<Color>();
 
     private Color currentColor;
 
     private Renderer blockRenderer;
+
+
 
     private void Start()
     {
@@ -23,7 +25,7 @@ public class BlockChangeColor : MonoBehaviour
         colorStates.Add(RedState);
         colorStates.Add(GreenState);
        
-
+  
         blockRenderer = GetComponent<Renderer>();
 
         if (blockRenderer == null)
@@ -64,22 +66,27 @@ public class BlockChangeColor : MonoBehaviour
             switch (currentIndex)
             {
                 case 0: // WhiteState
-                    gameObject.SetActive(false); 
+                    gameObject.SetActive(false);
+                    ScoreUI.instance.UpdateScore();
+                    ScoreUI.instance.UpdateScore();
                     break;
 
                 case 1: // YellowState
                     currentColor = WhiteState;
                     blockRenderer.material.color = currentColor;
+                    ScoreUI.instance.UpdateScore();
                     break;
 
                 case 2: // RedState
                     currentColor = YellowState;
                     blockRenderer.material.color = currentColor;
+                    ScoreUI.instance.UpdateScore();
                     break;
 
                 case 3: // BlueState
                     currentColor = RedState;
                     blockRenderer.material.color = currentColor;
+                    ScoreUI.instance.UpdateScore();
                     break;
 
                 default:
