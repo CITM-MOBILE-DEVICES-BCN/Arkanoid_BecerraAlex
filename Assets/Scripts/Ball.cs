@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class BallController : MonoBehaviour
 {
 
     [SerializeField ]private Vector2 initialVelocity;
+    [SerializeField ]private Transform parentTransform;
 
     private Rigidbody2D rb;
     private bool isMoving = false;
+    public float numBalls = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +33,13 @@ public class Ball : MonoBehaviour
     void Update()
     {
         EjectBall();
+    }
+
+    public void ResetBall()
+    {     
+        transform.SetParent(parentTransform); 
+        rb.velocity = Vector2.zero; 
+        transform.localPosition = Vector3.zero; 
+        isMoving = false; 
     }
 }
