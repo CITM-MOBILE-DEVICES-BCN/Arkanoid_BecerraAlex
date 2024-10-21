@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isMoving = false;
-    public int numBalls = 3;
+
     [SerializeField] private float speedMult;
     // Start is called before the first frame update
     void Start()
@@ -52,14 +52,5 @@ public class BallController : MonoBehaviour
             rb.velocity *= speedMult;
         }
     }
-    public void SetNumBalls(int value)
-    {
-        numBalls = value;
-    }
-
-    // Método para obtener el número de bolas
-    public int GetNumBalls()
-    {
-        return numBalls;
-    }
+   
 }

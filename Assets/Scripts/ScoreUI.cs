@@ -10,6 +10,7 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI bestText;
     [SerializeField] private TextMeshProUGUI lifesText;
+    public int numBalls = 3;
     public static ScoreUI instance;
     private int score;
     private int best;
@@ -28,7 +29,7 @@ public class ScoreUI : MonoBehaviour
         scoreText.text = score.ToString();
         bestText.text = best.ToString();
         ballController = ball.GetComponent<BallController>();
-        lifesText.text = ballController.numBalls.ToString();
+        lifesText.text = numBalls.ToString();
     }
 
     public void UpdateScore()
@@ -39,7 +40,7 @@ public class ScoreUI : MonoBehaviour
     }
     public void UpdateLifes()
     {
-        lifesText.text = ballController.numBalls.ToString();
+        lifesText.text = numBalls.ToString();
     }
     public void UpdateBest()
     {
@@ -68,5 +69,15 @@ public class ScoreUI : MonoBehaviour
     {
         best = value;
         bestText.text = best.ToString();
+    }
+    public void SetNumBalls(int value)
+    {
+        numBalls = value;
+    }
+
+    // Método para obtener el número de bolas
+    public int GetNumBalls()
+    {
+        return numBalls;
     }
 }
