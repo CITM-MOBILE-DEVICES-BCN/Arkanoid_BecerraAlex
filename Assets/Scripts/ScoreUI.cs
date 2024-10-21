@@ -9,9 +9,12 @@ public class ScoreUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI bestText;
+    [SerializeField] private TextMeshProUGUI lifesText;
     public static ScoreUI instance;
     private int score;
     private int best;
+    private BallController ballController;
+    [SerializeField] GameObject ball;
 
     private void Awake()
     {
@@ -24,6 +27,8 @@ public class ScoreUI : MonoBehaviour
     {
         scoreText.text = score.ToString();
         bestText.text = best.ToString();
+        ballController = ball.GetComponent<BallController>();
+        lifesText.text = ballController.numBalls.ToString();
     }
 
     public void UpdateScore()
@@ -32,13 +37,36 @@ public class ScoreUI : MonoBehaviour
         scoreText.text = score.ToString();
         UpdateBest();
     }
-
+    public void UpdateLifes()
+    {
+        lifesText.text = ballController.numBalls.ToString();
+    }
     public void UpdateBest()
     {
         if (score>best)
         {
             best = score;
         }
+        bestText.text = best.ToString();
+    }
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetBest()
+    {
+        return best;
+    }
+    public void SetScore(int value)
+    {
+        score = value;
+        scoreText.text = score.ToString();
+    }
+
+    public void SetBest(int value)
+    {
+        best = value;
         bestText.text = best.ToString();
     }
 }

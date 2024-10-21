@@ -6,10 +6,12 @@ public class GameOverController : MonoBehaviour
 {
     private BallController ballController;
     [SerializeField] GameObject ball;
+    [SerializeField] GameObject UI;
 
     private void Start()
     {
         ballController = ball.GetComponent<BallController>();
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,7 +27,8 @@ public class GameOverController : MonoBehaviour
         if (ballController.numBalls > 1f)
         {
             ballController.ResetBall();
-            ballController.numBalls = ballController.numBalls - 1f;
+            ballController.numBalls = ballController.numBalls - 1;
+            ScoreUI.instance.UpdateLifes();
         }
     }
 }
