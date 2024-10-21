@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockChangeColor : MonoBehaviour
+public class BrickBehaviour : MonoBehaviour
 {
     public Color WhiteState = Color.white;
     public Color YellowState = Color.yellow;
     public Color RedState = Color.red;
     public Color GreenState = Color.green;
+    public bool hasPowerUp = false;
     
     private List<Color> colorStates = new List<Color>();
 
@@ -66,25 +67,25 @@ public class BlockChangeColor : MonoBehaviour
             {
                 case 0: // WhiteState
                     gameObject.SetActive(false);
-                    ScoreUI.instance.UpdateScore();
+                    GameUI.instance.UpdateScore();
                     break;
 
                 case 1: // YellowState
                     currentColor = WhiteState;
                     blockRenderer.material.color = currentColor;
-                    ScoreUI.instance.UpdateScore();
+                    GameUI.instance.UpdateScore();
                     break;
 
                 case 2: // RedState
                     currentColor = YellowState;
                     blockRenderer.material.color = currentColor;
-                    ScoreUI.instance.UpdateScore();
+                    GameUI.instance.UpdateScore();
                     break;
 
                 case 3: // BlueState
                     currentColor = RedState;
                     blockRenderer.material.color = currentColor;
-                    ScoreUI.instance.UpdateScore();
+                    GameUI.instance.UpdateScore();
                     break;
 
                 default:

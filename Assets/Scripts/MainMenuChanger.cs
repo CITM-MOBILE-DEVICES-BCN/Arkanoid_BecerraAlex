@@ -15,6 +15,7 @@ public class MainMenuChanger : MonoBehaviour
     public void LoadScene()
     {
         SceneManager.LoadScene("SampleScene");
+        
     }
     public void CanContinue()
     {
@@ -32,6 +33,7 @@ public class MainMenuChanger : MonoBehaviour
     public void LoadData()
     {
         GameManager.instance.gameData.Load();
+        LoadScene();
     }
 
 }

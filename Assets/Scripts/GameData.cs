@@ -10,11 +10,16 @@ public class GameData
     private const string NumBallsKey = "NumBalls";
     private const string hasSavedKey = "hasSaved";
 
+    public int numBalls = 3;
+    public int score;
+    public int best;
+    public int hasSaved = 0;
 
 
-   
+
+
     // Método para guardar el puntaje y el número de bolas
-    public void Save(int score, int numBalls, int best,int hasSaved)
+    public void Save()
     {
         PlayerPrefs.SetInt(ScoreKey, score);
         PlayerPrefs.SetInt(NumBallsKey, numBalls);
@@ -28,23 +33,15 @@ public class GameData
         return PlayerPrefs.GetInt(hasSavedKey, 0);
     }
     // Método para cargar el puntaje y el número de bolas
-    private static (int , int , int, int) LoadDataFromPlayerRefs()
-    {
-        int score = PlayerPrefs.GetInt(ScoreKey, 0); // 0 es el valor por defecto si no hay datos
-        int best = PlayerPrefs.GetInt(BestKey, 0); // 3 es el valor por defecto
-        int numBalls = PlayerPrefs.GetInt(NumBallsKey, 3); // 3 es el valor por defecto
-        int hasSaved = PlayerPrefs.GetInt(hasSavedKey, 0); // 3 es el valor por defecto
-        return (score, numBalls, best, hasSaved);
-    }
     public void Load()
     {
-        (int score, int numBalls, int best, int hasSaved) =LoadDataFromPlayerRefs();
-        ScoreUI.instance.SetScore(score);
-        ScoreUI.instance.SetBest(best);
-        ScoreUI.instance.SetNumBalls(numBalls);
-        ScoreUI.instance.UpdateLifes();
-        Debug.Log($"Datos cargados - Score: {score}, BestScore: {best}");
+        score = PlayerPrefs.GetInt(ScoreKey, 0); // 0 es el valor por defecto si no hay datos
+        best = PlayerPrefs.GetInt(BestKey, 0); // 3 es el valor por defecto
+        numBalls = PlayerPrefs.GetInt(NumBallsKey, 3); // 3 es el valor por defecto
+        hasSaved = PlayerPrefs.GetInt(hasSavedKey, 0); // 3 es el valor por defecto
+        
     }
+   
     public static void ClearData()
     {
         PlayerPrefs.DeleteKey(ScoreKey);
@@ -54,6 +51,20 @@ public class GameData
         PlayerPrefs.Save();
     }
 
+   
 
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetBest()
+    {
+        return best;
+    }
+    public int GetNumBalls()
+    {
+        return numBalls;
+    }
 }
 

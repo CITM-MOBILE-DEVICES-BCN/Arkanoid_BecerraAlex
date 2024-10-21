@@ -24,11 +24,11 @@ public class GameOverController : MonoBehaviour
 
     private void CheckBallsLeft()
     {
-        if (ScoreUI.instance.numBalls > 1f)
+        if (GameManager.instance.gameData.numBalls > 1f)
         {
             ballController.ResetBall();
-            ScoreUI.instance.numBalls = ScoreUI.instance.numBalls - 1;
-            ScoreUI.instance.UpdateLifes();
+            GameManager.instance.gameData.numBalls = GameManager.instance.gameData.numBalls - 1;
+            GameUI.instance.UpdateLifes();
         }
     }
 }
