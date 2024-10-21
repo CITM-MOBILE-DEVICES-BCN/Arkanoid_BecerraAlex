@@ -3006,7 +3006,7 @@ GameObject:
   - component: {fileID: 1234519975}
   - component: {fileID: 1234519974}
   - component: {fileID: 1234519973}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ball
   m_TagString: ball
   m_Icon: {fileID: 0}
@@ -3042,6 +3042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialVelocity: {x: -4, y: 6}
   parentTransform: {fileID: 660038528}
+  ballsInGame: 1
   speedMult: 1.01
 --- !u!58 &1234519974
 CircleCollider2D:

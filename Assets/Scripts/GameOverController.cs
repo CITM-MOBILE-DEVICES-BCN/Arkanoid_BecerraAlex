@@ -15,9 +15,21 @@ public class GameOverController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-            
+
+        if (collision.gameObject.CompareTag("ball") && ballController.ballsInGame == 1)
+        {
             CheckBallsLeft();
+        }
+        else
+        {
+            collision.gameObject.SetActive(false);
+            if (collision.gameObject.CompareTag("ball"))
+            {
+                ballController.ballsInGame = ballController.ballsInGame - 1;
+            }
+           
+        }
+          
         
         
     }
@@ -26,6 +38,7 @@ public class GameOverController : MonoBehaviour
     {
         if (GameManager.instance.gameData.numBalls > 1f)
         {
+            ball.SetActive(true);
             ballController.ResetBall();
             GameManager.instance.gameData.numBalls = GameManager.instance.gameData.numBalls - 1;
             GameUI.instance.UpdateLifes();

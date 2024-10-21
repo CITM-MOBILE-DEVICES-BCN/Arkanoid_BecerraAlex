@@ -10,6 +10,7 @@ public class BallController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isMoving = false;
+    public int ballsInGame = 1;
 
     [SerializeField] private float speedMult;
     // Start is called before the first frame update
@@ -42,7 +43,8 @@ public class BallController : MonoBehaviour
         transform.SetParent(parentTransform); 
         rb.velocity = Vector2.zero; 
         transform.localPosition = Vector3.zero; 
-        isMoving = false; 
+        isMoving = false;
+        ballsInGame = 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

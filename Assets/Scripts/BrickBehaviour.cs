@@ -9,6 +9,7 @@ public class BrickBehaviour : MonoBehaviour
     public Color RedState = Color.red;
     public Color GreenState = Color.green;
     public bool hasPowerUp = false;
+    public GameObject powerPrefab;
     
     private List<Color> colorStates = new List<Color>();
 
@@ -68,6 +69,12 @@ public class BrickBehaviour : MonoBehaviour
                 case 0: // WhiteState
                     gameObject.SetActive(false);
                     GameUI.instance.UpdateScore();
+                    int randomNumber = Random.Range(1, 101); 
+                    if (randomNumber >= 1 && randomNumber <= 20)
+                    {
+                        Instantiate(powerPrefab, transform.position, Quaternion.identity);
+                        
+                    }
                     break;
 
                 case 1: // YellowState

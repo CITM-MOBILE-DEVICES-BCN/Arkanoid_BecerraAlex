@@ -46,7 +46,7 @@ public class GameData
     {
         PlayerPrefs.DeleteKey(ScoreKey);
         PlayerPrefs.DeleteKey(NumBallsKey);
-        PlayerPrefs.DeleteKey(BestKey);
+        //PlayerPrefs.DeleteKey(BestKey);
         PlayerPrefs.DeleteKey(hasSavedKey);
         PlayerPrefs.Save();
     }
