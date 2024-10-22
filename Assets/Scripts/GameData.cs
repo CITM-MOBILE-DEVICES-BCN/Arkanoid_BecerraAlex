@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameData 
 {
@@ -45,13 +46,17 @@ public class GameData
         currentScene = PlayerPrefs.GetString(currentSceneKey, "MainMenu"); // 3 es el valor por defecto
         
     }
-   
-    public static void ClearData()
+  public void LoadBest()
     {
-        PlayerPrefs.DeleteKey(ScoreKey);
-        PlayerPrefs.DeleteKey(NumBallsKey);
-        //PlayerPrefs.DeleteKey(BestKey);
-        PlayerPrefs.DeleteKey(hasSavedKey);
+        best = PlayerPrefs.GetInt(BestKey, 0);
+    }
+    public void ResetData()
+    {
+        PlayerPrefs.SetInt(ScoreKey, 0);
+        PlayerPrefs.SetInt(NumBallsKey, 3);
+        PlayerPrefs.SetInt(hasSavedKey, -5);
+        PlayerPrefs.SetString(currentSceneKey, "MainMenu");
+        PlayerPrefs.SetInt(BestKey, best);
         PlayerPrefs.Save();
     }
 

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuCanvas;
     public GameData gameData;
     public WinUI winUI;
+    public LoseUI loseUI;
     public BoardController boardController;
     public static GameManager instance;
 
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
 
         gameData.currentScene = "Level1";
+        gameData.LoadBest();
         SceneManager.LoadScene("Level1");
 
     }
@@ -79,6 +81,10 @@ public class GameManager : MonoBehaviour
             winUI.WinMenu();
         
        
+    }
+    public void LoadLoseCanvas()
+    {
+        loseUI.LoseMenu();
     }
     public void AutoWin()
     {
