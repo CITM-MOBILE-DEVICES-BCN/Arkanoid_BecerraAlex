@@ -9,11 +9,13 @@ public class GameData
     private const string BestKey = "BestScore";
     private const string NumBallsKey = "NumBalls";
     private const string hasSavedKey = "hasSaved";
+    private const string currentSceneKey = "currentScene";
 
     public int numBalls = 3;
     public int score;
     public int best;
     public int hasSaved = 0;
+    public string currentScene;
 
 
 
@@ -25,6 +27,7 @@ public class GameData
         PlayerPrefs.SetInt(NumBallsKey, numBalls);
         PlayerPrefs.SetInt(BestKey, best);
         PlayerPrefs.SetInt(hasSavedKey, 1);
+        PlayerPrefs.SetString(currentSceneKey, currentScene);
         PlayerPrefs.Save(); // Asegúrate de guardar los cambios
         
     }
@@ -39,6 +42,7 @@ public class GameData
         best = PlayerPrefs.GetInt(BestKey, 0); // 3 es el valor por defecto
         numBalls = PlayerPrefs.GetInt(NumBallsKey, 3); // 3 es el valor por defecto
         hasSaved = PlayerPrefs.GetInt(hasSavedKey, 0); // 3 es el valor por defecto
+        currentScene = PlayerPrefs.GetString(currentSceneKey, "MainMenu"); // 3 es el valor por defecto
         
     }
    

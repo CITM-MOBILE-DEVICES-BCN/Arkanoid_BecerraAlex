@@ -45,8 +45,13 @@ public class PauseUI : MonoBehaviour
 
     public void SaveAndQuit()
     {
+       
         GameManager.instance.gameData.Save();
-        SceneManager.LoadScene("MainMenu");
-
+        GameManager.instance.LoadMenu();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

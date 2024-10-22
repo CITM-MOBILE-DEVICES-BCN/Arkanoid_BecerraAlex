@@ -11,10 +11,10 @@ public class BrickBehaviour : MonoBehaviour
     public bool hasPowerUp = false;
     public GameObject powerPrefab;
     
+
+
     private List<Color> colorStates = new List<Color>();
-
     private Color currentColor;
-
     private Renderer blockRenderer;
 
 
@@ -28,6 +28,7 @@ public class BrickBehaviour : MonoBehaviour
        
   
         blockRenderer = GetComponent<Renderer>();
+      
 
         if (blockRenderer == null)
         {
@@ -69,8 +70,9 @@ public class BrickBehaviour : MonoBehaviour
                 case 0: // WhiteState
                     gameObject.SetActive(false);
                     GameUI.instance.UpdateScore();
+                    GameManager.instance.boardController.BrickDestroyed();
                     int randomNumber = Random.Range(1, 101); 
-                    if (randomNumber >= 1 && randomNumber <= 20)
+                    if (randomNumber >= 1 && randomNumber <= 10)
                     {
                         Instantiate(powerPrefab, transform.position, Quaternion.identity);
                         

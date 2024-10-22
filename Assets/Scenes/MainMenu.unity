@@ -235,7 +235,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 644110977}
-  - component: {fileID: 644110976}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -243,19 +242,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &644110976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644110975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e91e0184f1cca4d8c78b0ab81e5f11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ContinueButton: {fileID: 901242499}
 --- !u!4 &644110977
 Transform:
   m_ObjectHideFlags: 0
@@ -434,6 +420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe07d390f9778b4380e11627b3a4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ContinueButton: {fileID: 901242499}
+  menuCanvas: {fileID: 234924808}
+  winUI: {fileID: 0}
 --- !u!4 &736763314
 Transform:
   m_ObjectHideFlags: 0
@@ -600,8 +589,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 644110976}
-        m_TargetAssemblyTypeName: MainMenuChanger, Assembly-CSharp
+      - m_Target: {fileID: 736763313}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadData
         m_Mode: 1
         m_Arguments:
@@ -1328,9 +1317,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 644110976}
-        m_TargetAssemblyTypeName: MainMenuChanger, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 736763313}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadLevel1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

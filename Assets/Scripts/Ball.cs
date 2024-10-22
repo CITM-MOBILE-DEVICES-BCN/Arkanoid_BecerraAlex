@@ -11,6 +11,8 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isMoving = false;
     public int ballsInGame = 1;
+    private const float maxSpeed = 3f;
+
 
     [SerializeField] private float speedMult;
     // Start is called before the first frame update
@@ -49,8 +51,11 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Brick"))
+         
+        if (rb.velocity.magnitude < maxSpeed)
         {
+            // Ajusta la velocidad para que tenga la misma dirección pero con la magnitud máxima
+            //rb.velocity = rb.velocity.normalized * maxSpeed;
             rb.velocity *= speedMult;
         }
     }

@@ -37,16 +37,17 @@ public class PowerUp : MonoBehaviour
         if (ball != null)
         {
             // Crear una nueva posición un poco desplazada del objeto original
-            Vector3 newPosition = ball.transform.position + new Vector3(1.0f, 0, 0); // Desplazar 1 unidad a la derecha
+            Vector3 newPosition = ball.transform.position; // Desplazar 1 unidad a la derecha
 
             // Crear el duplicado en la nueva posición
             clone = Instantiate(ball, newPosition, ball.transform.rotation);
             Rigidbody2D originalRigidbody = ball.GetComponent<Rigidbody2D>();
             if (originalRigidbody != null)
             {
+                int r = Random.Range(-1, 1);
                 // Mantener la dirección de la velocidad original pero ajustar la posición en x
-                Vector2 originalVelocity = originalRigidbody.velocity;
-
+                Vector2 originalVelocity = new Vector2(r * originalRigidbody.velocity.x, originalRigidbody.velocity.y);
+               
                 // Ajustar la velocidad en el eje x según sea necesario, por ejemplo, cambiar a -1.0 para mover en la dirección opuesta
                 originalVelocity.x = Mathf.Sign(originalVelocity.x) * Mathf.Abs(originalVelocity.x); // Mantener la dirección de la velocidad
 
