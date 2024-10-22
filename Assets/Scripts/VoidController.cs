@@ -40,12 +40,14 @@ public class VoidController : MonoBehaviour
         {
             ball.SetActive(true);
             ballController.ResetBall();
+            GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.loseBall);
             GameManager.instance.gameData.numBalls = GameManager.instance.gameData.numBalls - 1;
             GameUI.instance.UpdateLifes();
         }
         else
         {
             GameManager.instance.LoadLoseCanvas();
+            GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.lose);
         }
        
     }

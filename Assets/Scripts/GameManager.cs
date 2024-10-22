@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ContinueButton;
     [SerializeField] GameObject menuCanvas;
     public GameData gameData;
+    public AudioManager audioManager;
     public WinUI winUI;
     public LoseUI loseUI;
     public BoardController boardController;
@@ -21,19 +22,21 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         if(instance == null)
         {
             instance = this;
-            gameData = new GameData();
-            boardController = new BoardController();
+           
             DontDestroyOnLoad(this);
-            gameData.currentScene = "MainMenu";
+            
         }
         else
         {
             Destroy(gameObject);
         }
-       
+        gameData = new GameData();
+        boardController = new BoardController();
+        gameData.currentScene = "MainMenu";
     }
     private void Start()
     {
@@ -78,7 +81,8 @@ public class GameManager : MonoBehaviour
     public void LoadVictoryCanvas()
     {
        
-            winUI.WinMenu();
+        winUI.WinMenu();
+        audioManager.PlaySFX(audioManager.win);
         
        
     }
@@ -90,8 +94,9 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.W))
         {
-           
-            winUI.winMenu.SetActive(true);
+            LoadVictoryCanvas();
+
+
         }
     }
     public void LoadMenu()

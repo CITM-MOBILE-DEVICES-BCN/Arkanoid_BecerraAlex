@@ -26,7 +26,8 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           ballController.ballsInGame = ballController.ballsInGame + 1;
+            GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.powerUp);
+            ballController.ballsInGame = ballController.ballsInGame + 1;
             DuplicateObject();
             gameObject.SetActive(false);
         }

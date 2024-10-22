@@ -11,8 +11,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bestText;
     [SerializeField] private TextMeshProUGUI lifesText;
     public static GameUI instance;
-    private BallController ballController;
-    [SerializeField] GameObject ball;
+
 
     private void Awake()
     {
@@ -22,7 +21,6 @@ public class GameUI : MonoBehaviour
     {
         scoreText.text = GameManager.instance.gameData.score.ToString();
         bestText.text = GameManager.instance.gameData.best.ToString();
-        ballController = ball.GetComponent<BallController>();
         lifesText.text = GameManager.instance.gameData.numBalls.ToString();
     }
 

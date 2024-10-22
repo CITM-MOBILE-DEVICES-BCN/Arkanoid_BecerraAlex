@@ -57,7 +57,9 @@ public class BallController : MonoBehaviour
             // Ajusta la velocidad para que tenga la misma dirección pero con la magnitud máxima
             //rb.velocity = rb.velocity.normalized * maxSpeed;
             rb.velocity *= speedMult;
+           
         }
+        GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.collide);
     }
    
 }
