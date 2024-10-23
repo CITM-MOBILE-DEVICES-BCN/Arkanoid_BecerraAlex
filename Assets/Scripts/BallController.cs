@@ -19,12 +19,11 @@ public class BallController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Invoke("EjectBall", 2f);
     }
 
     void EjectBall()
     {
-        if ( !isMoving)
+        if (Input.GetKeyDown(KeyCode.Space) && !isMoving)
         {
 
             transform.parent = null;
@@ -37,7 +36,7 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //EjectBall();
+        EjectBall();
        
     }
 
@@ -48,7 +47,6 @@ public class BallController : MonoBehaviour
         transform.localPosition = Vector3.zero; 
         isMoving = false;
         ballsInGame = 1;
-        Invoke("EjectBall", 2f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
