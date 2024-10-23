@@ -11,7 +11,7 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isMoving = false;
     public int ballsInGame = 1;
-    private const float maxSpeed = 3f;
+    private const float maxSpeed = 10f;
 
 
     [SerializeField] private float speedMult;
@@ -47,6 +47,7 @@ public class BallController : MonoBehaviour
         if (rb.velocity.magnitude < maxSpeed)
         {
             rb.velocity *= speedMult;
+            Debug.Log(rb.velocity.magnitude);
         }
         GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.collide);
     }

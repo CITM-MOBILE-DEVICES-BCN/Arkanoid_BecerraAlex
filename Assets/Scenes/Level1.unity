@@ -1920,7 +1920,7 @@ RectTransform:
   m_GameObject: {fileID: 487478821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100.30403, y: 119.766, z: 0}
+  m_LocalScale: {x: 101.55784, y: 119.766, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 882401586}
@@ -1955,7 +1955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.81483793}
   m_AnchorMax: {x: 0.5, y: 0.81483793}
-  m_AnchoredPosition: {x: -7.2, y: -392.01202}
+  m_AnchoredPosition: {x: -7.2, y: -392.01}
   m_SizeDelta: {x: 112.80005, y: 98}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &519420028
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0585936468c9c6d419648f9677a14e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: {x: -4, y: 6}
+  initialVelocity: {x: -4, y: 3}
   parentTransform: {fileID: 660038528}
   ballsInGame: 1
   speedMult: 1.01
