@@ -49,7 +49,7 @@ public class BrickBehaviour : MonoBehaviour
     }
 
     public void ChangeColor()
-    {
+    { 
         if (blockRenderer == null) return;
 
         int currentIndex = -1;
