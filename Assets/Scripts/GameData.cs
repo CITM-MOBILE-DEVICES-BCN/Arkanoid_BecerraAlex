@@ -19,9 +19,6 @@ public class GameData
     public string currentScene;
 
 
-
-
-    // Método para guardar el puntaje y el número de bolas
     public void Save()
     {
         PlayerPrefs.SetInt(ScoreKey, score);
@@ -29,24 +26,22 @@ public class GameData
         PlayerPrefs.SetInt(BestKey, best);
         PlayerPrefs.SetInt(hasSavedKey, 1);
         PlayerPrefs.SetString(currentSceneKey, currentScene);
-        PlayerPrefs.Save(); // Asegúrate de guardar los cambios
-        
+        PlayerPrefs.Save();
     }
     public int GethasSaved()
     {
         return PlayerPrefs.GetInt(hasSavedKey, 0);
     }
-    // Método para cargar el puntaje y el número de bolas
+
     public void Load()
     {
-        score = PlayerPrefs.GetInt(ScoreKey, 0); // 0 es el valor por defecto si no hay datos
-        best = PlayerPrefs.GetInt(BestKey, 0); // 3 es el valor por defecto
-        numBalls = PlayerPrefs.GetInt(NumBallsKey, 3); // 3 es el valor por defecto
-        hasSaved = PlayerPrefs.GetInt(hasSavedKey, 0); // 3 es el valor por defecto
-        currentScene = PlayerPrefs.GetString(currentSceneKey, "MainMenu"); // 3 es el valor por defecto
-        
+        score = PlayerPrefs.GetInt(ScoreKey, 0);
+        best = PlayerPrefs.GetInt(BestKey, 0);
+        numBalls = PlayerPrefs.GetInt(NumBallsKey, 3); 
+        hasSaved = PlayerPrefs.GetInt(hasSavedKey, 0);
+        currentScene = PlayerPrefs.GetString(currentSceneKey, "MainMenu");
     }
-  public void LoadBest()
+    public void LoadBest()
     {
         best = PlayerPrefs.GetInt(BestKey, 0);
     }
@@ -59,8 +54,6 @@ public class GameData
         PlayerPrefs.SetInt(BestKey, best);
         PlayerPrefs.Save();
     }
-
-   
 
     public int GetScore()
     {

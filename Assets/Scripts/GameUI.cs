@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI bestText;
@@ -58,7 +57,4 @@ public class GameUI : MonoBehaviour
     {
         GameManager.instance.gameData.numBalls = value;
     }
-
-    // Método para obtener el número de bolas
-   
 }

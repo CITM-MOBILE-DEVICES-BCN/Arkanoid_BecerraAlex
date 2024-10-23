@@ -8,7 +8,6 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] GameObject ContinueButton;
     [SerializeField] GameObject menuCanvas;
     public GameData gameData;
@@ -26,9 +25,7 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-           
             DontDestroyOnLoad(this);
-            
         }
         else
         {
@@ -40,10 +37,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        // Cargar los datos al inicio del juego
         SceneManager.sceneLoaded += OnSceneLoaded;
         CanContinue();
-
     }
     private void Update()
     {
@@ -51,7 +46,6 @@ public class GameManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Verificar si se ha cargado el nivel 1 y contar los bricks
         if (scene.name == "Level1" || scene.name == "Level2")
         {
             boardController.CountBricks();
@@ -59,15 +53,12 @@ public class GameManager : MonoBehaviour
     }
     public void LoadLevel1()
     {
-
         gameData.currentScene = "Level1";
         gameData.LoadBest();
         SceneManager.LoadScene("Level1");
-
     }
     public void CanContinue()
     {
-
         if (gameData.GethasSaved() == 1)
         {
             ContinueButton.SetActive(true);
@@ -80,11 +71,8 @@ public class GameManager : MonoBehaviour
     
     public void LoadVictoryCanvas()
     {
-       
         winUI.WinMenu();
         audioManager.PlaySFX(audioManager.win);
-        
-       
     }
     public void LoadLoseCanvas()
     {
@@ -95,8 +83,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W))
         {
             LoadVictoryCanvas();
-
-
         }
     }
     public void LoadMenu()
@@ -109,18 +95,19 @@ public class GameManager : MonoBehaviour
         {
             case "MainMenu":
                 break;
+
             case "Level1":
-                
                 gameData.currentScene = "Level1";
                 SceneManager.LoadScene("Level1");
                 break;
+
             case "Level2":
-               
                 gameData.currentScene = "Level2";
                 SceneManager.LoadScene("Level2");
                 break;
 
             default:
+
                 break;
         }
     }
@@ -128,7 +115,6 @@ public class GameManager : MonoBehaviour
     {
         gameData.Load();
         LoadScene();
-        
     }
 
 }

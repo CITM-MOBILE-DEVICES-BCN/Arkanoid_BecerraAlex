@@ -11,11 +11,9 @@ public class VoidController : MonoBehaviour
     private void Start()
     {
         ballController = ball.GetComponent<BallController>();
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("ball") && ballController.ballsInGame == 1)
         {
             CheckBallsLeft();
@@ -27,11 +25,7 @@ public class VoidController : MonoBehaviour
             {
                 ballController.ballsInGame = ballController.ballsInGame - 1;
             }
-           
-        }
-          
-        
-        
+        } 
     }
 
     private void CheckBallsLeft()

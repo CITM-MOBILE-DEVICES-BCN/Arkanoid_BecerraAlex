@@ -7,15 +7,11 @@ public class WinUI : MonoBehaviour
 {
     public GameObject winMenu;
 
-    // Start is called before the first frame update
     void Start()
     {
         GameManager.instance.winUI = this;
         winMenu.SetActive(false);
     }
-
-    // Update is called once per frame
-    
 
     public void WinMenu()
     {
@@ -24,7 +20,6 @@ public class WinUI : MonoBehaviour
         
     }
 
-   
     public void ContinueButton()
     {
         if (GameManager.instance.gameData.currentScene == "Level1")

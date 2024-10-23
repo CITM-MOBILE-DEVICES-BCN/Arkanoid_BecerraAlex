@@ -4,32 +4,25 @@ using UnityEngine;
 
 public class BrickBehaviour : MonoBehaviour
 {
-    public Color WhiteState = Color.white;
-    public Color YellowState = Color.yellow;
-    public Color RedState = Color.red;
-    public Color GreenState = Color.green;
+    public Color OneShot;
+    public Color TwoShot;
+    public Color ThreeShot;
+    public Color FourShotShot;
     public bool hasPowerUp = false;
     public GameObject powerPrefab;
-    
-
-
     private List<Color> colorStates = new List<Color>();
     private Color currentColor;
     private Renderer blockRenderer;
 
-
-
     private void Start()
     {
-        colorStates.Add(WhiteState);
-        colorStates.Add(YellowState);
-        colorStates.Add(RedState);
-        colorStates.Add(GreenState);
+        colorStates.Add(OneShot);
+        colorStates.Add(TwoShot);
+        colorStates.Add(ThreeShot);
+        colorStates.Add(FourShotShot);
        
-  
         blockRenderer = GetComponent<Renderer>();
-      
-
+     
         if (blockRenderer == null)
         {
             return;
@@ -67,45 +60,44 @@ public class BrickBehaviour : MonoBehaviour
         {
             switch (currentIndex)
             {
-                case 0: // WhiteState
+                case 0: // OneShot
                     gameObject.SetActive(false);
                     GameUI.instance.UpdateScore();
                     GameManager.instance.boardController.BrickDestroyed();
                     int randomNumber = Random.Range(1, 101); 
-                    if (randomNumber >= 1 && randomNumber <= 10)
+                    if (randomNumber >= 1 && randomNumber <= 10) // Prefab 10/100
                     {
-                        Instantiate(powerPrefab, transform.position, Quaternion.identity);
-                        
+                        Instantiate(powerPrefab, transform.position, Quaternion.identity); 
                     }
                     break;
 
-                case 1: // YellowState
-                    currentColor = WhiteState;
+                case 1: // TwoShot
+                    currentColor = OneShot;
                     blockRenderer.material.color = currentColor;
                     GameUI.instance.UpdateScore();
                     break;
 
-                case 2: // RedState
-                    currentColor = YellowState;
+                case 2: // ThreeShot
+                    currentColor = TwoShot;
                     blockRenderer.material.color = currentColor;
                     GameUI.instance.UpdateScore();
                     break;
 
                 case 3: // BlueState
-                    currentColor = RedState;
+                    currentColor = ThreeShot;
                     blockRenderer.material.color = currentColor;
                     GameUI.instance.UpdateScore();
                     break;
 
                 default:
-                    currentColor = WhiteState;
+                    currentColor = OneShot;
                     blockRenderer.material.color = currentColor;
                     break;
             }
         }
         else
         {
-            currentColor = WhiteState;
+            currentColor = OneShot;
             blockRenderer.material.color = currentColor;
         }
     }

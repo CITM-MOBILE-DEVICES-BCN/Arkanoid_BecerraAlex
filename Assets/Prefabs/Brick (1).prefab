@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531ae5acc9a2521479045c190d5867f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhiteState: {r: 1, g: 1, b: 1, a: 0.14901961}
-  YellowState: {r: 1, g: 1, b: 1, a: 0.3882353}
-  RedState: {r: 1, g: 1, b: 1, a: 0.70980394}
-  GreenState: {r: 1, g: 1, b: 1, a: 1}
+  OneShot: {r: 1, g: 1, b: 1, a: 0.14901961}
+  TwoShot: {r: 1, g: 1, b: 1, a: 0.46666667}
+  ThreeShot: {r: 1, g: 1, b: 1, a: 0.78039217}
+  FourShotShot: {r: 1, g: 1, b: 1, a: 1}
   hasPowerUp: 0
   powerPrefab: {fileID: 4399521459250550272, guid: 30a9df7cca83b83449d2c48f4b396829, type: 3}
 --- !u!61 &4714281026848266171

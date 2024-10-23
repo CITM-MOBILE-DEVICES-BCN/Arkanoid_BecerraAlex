@@ -7,13 +7,12 @@ public class PauseUI : MonoBehaviour
 {
     public GameObject pauseMenu;
     public bool isPaused;
-    // Start is called before the first frame update
+
     void Start()
     {
         pauseMenu.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -45,7 +44,6 @@ public class PauseUI : MonoBehaviour
 
     public void SaveAndQuit()
     {
-       
         GameManager.instance.gameData.Save();
         GameManager.instance.LoadMenu();
 #if UNITY_EDITOR

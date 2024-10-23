@@ -19,8 +19,6 @@ public class BoardController
     public void CountBricks()
     {
         GameObject[] brickObjects = GameObject.FindGameObjectsWithTag("Brick");
-
-        // Limpia la lista antes de añadir los nuevos bricks
         bricks.Clear();
         foreach (GameObject obj in brickObjects)
         {
@@ -31,7 +29,6 @@ public class BoardController
             }
         }
 
-        // Cuenta los bricks y actualiza el contador
         brickCount = bricks.Count;
         counted = true;
     }
@@ -43,11 +40,7 @@ public class BoardController
         Debug.Log(brickCount);
         if (brickCount == 0)
         {
-
            GameManager.instance.LoadVictoryCanvas();
         }
-
-
     }
-   
 }

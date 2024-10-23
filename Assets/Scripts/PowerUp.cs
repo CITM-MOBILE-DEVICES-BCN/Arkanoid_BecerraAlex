@@ -17,7 +17,6 @@ public class PowerUp : MonoBehaviour
         ball = GameObject.FindGameObjectWithTag("ball");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -37,10 +36,7 @@ public class PowerUp : MonoBehaviour
     {
         if (ball != null)
         {
-            // Crear una nueva posición un poco desplazada del objeto original
-            Vector3 newPosition = ball.transform.position; // Desplazar 1 unidad a la derecha
-
-            // Crear el duplicado en la nueva posición
+            Vector3 newPosition = ball.transform.position;
             clone = Instantiate(ball, newPosition, ball.transform.rotation);
             Rigidbody2D originalRigidbody = ball.GetComponent<Rigidbody2D>();
             if (originalRigidbody != null)
@@ -55,12 +51,6 @@ public class PowerUp : MonoBehaviour
                 // Asignar la misma velocidad de dirección al clon, pero cambiar solo la posición en x
                 clone.GetComponent<Rigidbody2D>().velocity = originalVelocity;
             }
-
-
-        }
-        else
-        {
-            Debug.LogWarning("No se ha asignado un objeto para duplicar.");
         }
     }
 

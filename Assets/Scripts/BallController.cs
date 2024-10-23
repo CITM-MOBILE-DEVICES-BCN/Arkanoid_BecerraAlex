@@ -26,19 +26,10 @@ public class BallController : MonoBehaviour
     {
         if ( !isMoving)
         {
-
             transform.parent = null;
             isMoving = true;
             rb.velocity = initialVelocity;
-
-
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        //EjectBall();
-       
     }
 
     public void ResetBall()
@@ -53,13 +44,9 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-         
         if (rb.velocity.magnitude < maxSpeed)
         {
-            // Ajusta la velocidad para que tenga la misma dirección pero con la magnitud máxima
-            //rb.velocity = rb.velocity.normalized * maxSpeed;
             rb.velocity *= speedMult;
-           
         }
         GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.collide);
     }
