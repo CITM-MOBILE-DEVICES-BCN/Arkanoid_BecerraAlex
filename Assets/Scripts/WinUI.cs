@@ -25,26 +25,14 @@ public class WinUI : MonoBehaviour
     }
 
    
-    public void SaveAndQuit()
-    {
-
-        GameManager.instance.gameData.Save();
-       
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-
-    }
     public void ContinueButton()
     {
         if (GameManager.instance.gameData.currentScene == "Level1")
         {
             GameManager.instance.gameData.currentScene = "Level2";
             GameManager.instance.gameData.Save();
-            SceneManager.LoadScene("Level2");
             GameManager.instance.gameData.Load();
+            SceneManager.LoadScene("Level2");
         } else 
         {
             GameManager.instance.gameData.currentScene = "Level1";

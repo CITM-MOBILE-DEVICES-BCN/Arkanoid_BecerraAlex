@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // Importa esta biblioteca para acceder a UI elements.
+using UnityEngine.UI; 
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         ballController = ball.GetComponent<BallController>();
 
     }
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         // Obtén la posición del slider.
         float sliderValue = positionSlider.value;
-
         // Convierte el valor del slider a la posición del mundo.
         float worldPositionX = Mathf.Lerp(-boundary, boundary, sliderValue);
 
