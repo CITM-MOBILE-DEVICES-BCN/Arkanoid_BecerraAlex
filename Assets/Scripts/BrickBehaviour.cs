@@ -8,7 +8,6 @@ public class BrickBehaviour : MonoBehaviour
     public Color TwoShot;
     public Color ThreeShot;
     public Color FourShotShot;
-    public bool hasPowerUp = false;
     public GameObject powerPrefab;
     private List<Color> colorStates = new List<Color>();
     private Color currentColor;

@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         AutoWin();
+        AutoLose();
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -77,12 +78,20 @@ public class GameManager : MonoBehaviour
     public void LoadLoseCanvas()
     {
         loseUI.LoseMenu();
+        audioManager.PlaySFX(audioManager.lose);
     }
     public void AutoWin()
     {
         if (Input.GetKeyUp(KeyCode.W))
         {
             LoadVictoryCanvas();
+        }
+    }
+    public void AutoLose()
+    {
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            LoadLoseCanvas();
         }
     }
     public void LoadMenu()
